@@ -52,7 +52,12 @@ def contratar_empleado():
     e = Empleado(nombre, "Junior", "La Paz", "Monoblock", 69953348)
     empresa1.contratar(e)
     entry_nombre.delete(0, tk.END)  # Limpiar el campo de entrada
-    messagebox.showinfo("Contratación", f"Empleado {nombre} contratado.")
+    messagebox.showinfo("Contratación", f"Persona {nombre} se agrego a lalista de postulantes.")
+
+def contratar(self,name): #Falta terminar el codigo
+    for c in self.empleados:
+        if name==self.empleados.nom:
+
 
 def listar_empleados():
     empleados_info = empresa1.listar_empleados()
@@ -63,28 +68,33 @@ def listar_empleados():
 ventana = tk.Tk()
 ventana.title("Gestión de Empleados")
 ventana.geometry("800x600")
+ventana.config(bg="black")
 
-# Crear instancia de empresa
 empresa1 = Empresa("Zzzz")
 
 # Etiqueta y caja de texto para ingresar el nombre del empleado
-label_nombre = tk.Label(ventana, text="Nombre del empleado a contratar:")
+label_nombre = tk.Label(ventana, text="Nombre del postulante:")
 label_nombre.pack(pady=10)
 
 entry_nombre = tk.Entry(ventana, width=30)
 entry_nombre.pack(pady=5)
 
 # Botón para contratar al empleado
-btn_contratar = tk.Button(ventana, text="Contratar Empleado", command=contratar_empleado)
+btn_contratar = tk.Button(ventana, text="Postular", command=contratar_empleado)
 btn_contratar.pack(pady=10)
 
 # Botón para listar los empleados
-btn_listar = tk.Button(ventana, text="Listar Empleados", command=listar_empleados)
+btn_listar = tk.Button(ventana, text="Listar postulantes", command=listar_empleados)
 btn_listar.pack(pady=10)
 
 # Área de texto para mostrar la lista de empleados
 text_empleados = tk.Text(ventana, height=10, width=50)
 text_empleados.pack(pady=10)
+
+label_nombre = tk.Label(ventana, text="Nombre del postulante a contratar:")
+label_nombre.pack(pady=10)
+entry_nombre = tk.Entry(ventana, width=30)
+entry_nombre.pack(pady=5)
 
 # Iniciar la aplicación
 ventana.mainloop()
